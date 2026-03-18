@@ -1,0 +1,59 @@
+<!doctype html>
+
+<head>
+<meta charset="UTF-8">
+
+<!-- carrega as fontes -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Lobster&family=Anton&display=swap" rel="stylesheet"> -->
+
+<style>
+    /* SEM PONTO - aplica em todos os parágrafos */
+    p {
+        font-size: 22px;  /* Todos os <p> ficam com tamanho 16px */
+        text-align: center;
+        color: white;
+        font-family: "Pacifico","Calibri", "Times", Verdana, Arial;
+    }
+
+    /* COM PONTO - aplica em tudo que tem essa classe */
+    .destaque {
+        background: yellow;  /* <p class="destaque"> e <div class="destaque"> ficam amarelos */
+        font-weight: bold;
+        font-size: 30px;
+        color: black;
+    }
+    .super_destaque {
+        font-weight: bold;
+        color: red;
+        font-size: 40px;
+    }
+    .fundo_da_pagina {
+        background: rgb(65, 64, 64);
+    }
+</style>
+
+
+<title>Exemplo 8 - Classe CSS</title>
+
+</head>
+
+<body class="fundo_da_pagina">
+
+    <p>Salve o <span class="super_destaque">Tricolor</span> Paulista <br>
+    Amado clube brasileiro <br>
+    Tu és <span class="super_destaque">forte</span>, tu és grande <br>
+    Dentre os grandes, és o primeiro <br>
+    Tu és forte, tu és grande <br>
+    Dentre os grandes, és o <span class="super_destaque">primeiro</span>.</p>
+    
+    <p class="destaque">Ó, Tricolor! <br>
+    Clube bem amado <br>
+    As tuas glórias vêm do passado!</p>
+    
+    <p>Ó, Tricolor! <br>
+    Clube bem amado <br>
+    As tuas glórias vêm do passado!</p>
+
+</body>
+
+</html>
