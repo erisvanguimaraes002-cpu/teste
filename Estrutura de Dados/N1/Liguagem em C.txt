@@ -1,0 +1,70 @@
+//Link do Editor 
+//https://onecompiler.com/c
+
+#include <stdio.h>  // Inclui a biblioteca usada para exibir textos e valores na tela.
+#include <stdlib.h> // Inclui a biblioteca usada para reservar memória com malloc.
+
+// Estrutura do No.
+typedef struct No {
+    int valor;        
+    struct No *prox;  
+} No;                
+
+// Lista Inicial
+No n6 = {70, NULL};
+No n5 = {60, &n6};
+No n4 = {50, &n5};
+No n3 = {30, &n4};
+No n2 = {20, &n3};
+No n1 = {10, &n2};
+No *lista = &n1;  // Cria um ponteiro que aponta para o primeiro nó da lista.
+
+// Insere um novo nó na posição indicada da lista.
+void inserirMeio(No *lista, int valor, int posicao) {
+    No *atual = lista; // Começa no primeiro nó da lista.
+
+    // Avança até encontrar o nó anterior à posição de inserção.
+    for (int i = 1; i < posicao - 1; i++) {
+        atual = atual->prox; // Move o ponteiro para o próximo nó.
+    }
+
+    // Reserva memória para criar um novo nó.
+    No *novo = malloc(sizeof(No));
+    // Armazena o valor recebido dentro do novo nó.
+    novo->valor = valor;
+    // Faz o novo nó apontar para o nó que estava depois do nó atual.
+    novo->prox = atual->prox;
+    // Faz o nó atual apontar para o novo nó.
+    atual->prox = novo;
+}
+
+// Exibe todos os valores da lista na tela.
+void exibirLista(No *p) {
+    // Continua enquanto o ponteiro não chegar ao final da lista.
+    while (p != NULL) {
+        // Exibe o valor do nó atual e uma seta.
+        printf("%d -> ", p->valor);
+        // Avança o ponteiro para o próximo nó.
+        p = p->prox;
+    }
+    // Exibe NULL para indicar o final da lista.
+    printf("NULL\n");
+}
+
+// Inicia a execução do programa.
+int main(void) {
+    // Exibe um texto indicando a lista antes da inserção.
+    printf("Antes: ");
+    // Mostra os nós que já existem na lista.
+    exibirLista(lista);
+
+    // Insere o valor 40 na posição 4 da lista.
+    inserirMeio(lista, 40, 4);
+
+    // Exibe um texto indicando a lista depois da inserção.
+    printf("Depois: ");
+    // Mostra a lista com o novo nó inserido.
+    exibirLista(lista);
+
+    // Informa que o programa terminou corretamente.
+    return 0;

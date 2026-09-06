@@ -1,0 +1,41 @@
+INÍCIO
+
+    // Criar a lista inicial
+    lista ← 10 → 20 → 30 → 50 → 60 → 70 → NULO
+
+    PROCEDIMENTO inserirMeio(lista, valor, posicao)
+        atual ← lista
+
+        PARA i ← 1 ENQUANTO i < posicao - 1 FAÇA
+            atual ← atual.próximo
+        FIM PARA
+
+        criar novo nó
+        novo.valor ← valor
+        novo.próximo ← atual.próximo
+        atual.próximo ← novo
+    FIM PROCEDIMENTO
+
+    PROCEDIMENTO exibirLista(lista)
+        ENQUANTO lista ≠ NULO FAÇA
+            escrever lista.valor, " -> "
+            lista ← lista.próximo
+        FIM ENQUANTO
+
+        escrever "NULO"
+    FIM PROCEDIMENTO
+
+    escrever "Antes: "
+    exibirLista(lista)
+
+Antes: 10 -> 20 -> 30 -> 50 -> 60 -> 70 -> NULO
+
+    inserirMeio(lista, 40, 4)
+
+    escrever "Depois: "
+    exibirLista(lista)
+Depois: 10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 70 -> NULO
+
+FIM
+
+
